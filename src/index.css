@@ -17,5 +17,18 @@ code {
 }
 
 .product-title{
-  min-height: 80px;
+  /* min-height: 70px; */
+  font-size: 15px;
+}
+
+.product-details{
+  min-height: 130px;
+}
+
+.bg-blue{
+  background-color:#023469;
+}
+
+.text-blue{
+  color:#023469;
 }
