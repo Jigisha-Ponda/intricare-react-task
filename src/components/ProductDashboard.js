@@ -102,79 +102,81 @@ function ProductDashboard() {
     };
 
     return (
-        <div className="min-h-screen px-5 py-5">
-            <h1 className="text-3xl font-bold text-center text-blue">
-                Product Management Dashboard
-            </h1>
+        <div className="container mx-auto px-4">
+            <div className="min-h-screen px-5 py-5">
+                <h1 className="text-3xl font-bold text-center text-blue">
+                    Product Management Dashboard
+                </h1>
 
-            {/* Search & Filter */}
-            <div className="flex flex-col sm:flex-row justify-between items-center my-5 gap-2">
-                <input
-                    type="text"
-                    placeholder="Search by title..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="border p-2 rounded w-full sm:w-1/3"
-                />
+                {/* Search & Filter */}
+                <div className="flex flex-col sm:flex-row justify-between items-center my-5 gap-2">
+                    <input
+                        type="text"
+                        placeholder="Search by title..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="border p-2 rounded w-full sm:w-1/3"
+                    />
 
-                <select
-                    value={filterCategory}
-                    onChange={(e) => setFilterCategory(e.target.value)}
-                    className="border p-2 rounded w-full sm:w-1/3"
-                >
-                    <option value="">All Categories</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="jewelery">Jewelery</option>
-                    <option value="men's clothing">Men's Clothing</option>
-                    <option value="women's clothing">Women's Clothing</option>
-                </select>
+                    <select
+                        value={filterCategory}
+                        onChange={(e) => setFilterCategory(e.target.value)}
+                        className="border p-2 rounded w-full sm:w-1/3"
+                    >
+                        <option value="">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="jewelery">Jewelery</option>
+                        <option value="men's clothing">Men's Clothing</option>
+                        <option value="women's clothing">Women's Clothing</option>
+                    </select>
 
-                <button
-                    onClick={handleOpenAddModal}
-                    className="bg-blue text-white px-4 py-2 rounded hover:bg-blue w-full sm:w-auto"
-                >
-                    Add New Product
-                </button>
-            </div>
+                    <button
+                        onClick={handleOpenAddModal}
+                        className="bg-blue text-white px-4 py-2 rounded hover:bg-blue w-full sm:w-auto"
+                    >
+                        Add New Product
+                    </button>
+                </div>
 
-            {/* Modal */}
-            {showModal && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-5">
-                    <div className="bg-white py-4 px-6 rounded-lg shadow-lg w-full max-w-md relative">
-                        <button
-                            onClick={() => { setShowModal(false); setEditingProduct(null); }}
-                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-                        >
-                            ✕
-                        </button>
+                {/* Modal */}
+                {showModal && (
+                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-5">
+                        <div className="bg-white py-4 px-6 rounded-lg shadow-lg w-full max-w-md relative">
+                            <button
+                                onClick={() => { setShowModal(false); setEditingProduct(null); }}
+                                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                            >
+                                ✕
+                            </button>
 
-                        <ProductForm
-                            onAdd={handleAddProduct}
-                            onUpdate={handleUpdateProduct}
-                            editingProduct={editingProduct}
-                            setEditingProduct={setEditingProduct}
-                        />
+                            <ProductForm
+                                onAdd={handleAddProduct}
+                                onUpdate={handleUpdateProduct}
+                                editingProduct={editingProduct}
+                                setEditingProduct={setEditingProduct}
+                            />
+                        </div>
                     </div>
-                </div>
-            )}
+                )}
 
-            {/* Product Card Grid */}
-            {filteredProducts.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-5">
-                    {filteredProducts.map((product) => (
-                        <ProductCard
-                            key={product.id}
-                            product={product}
-                            onEdit={handleEditProduct}
-                            onDelete={handleDeleteProduct}
-                        />
-                    ))}
-                </div>
-            ) : (
-                <p className="text-center text-gray-600 text-xl mt-10">
-                    No Product Found
-                </p>
-            )}
+                {/* Product Card Grid */}
+                {filteredProducts.length > 0 ? (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-5">
+                        {filteredProducts.map((product) => (
+                            <ProductCard
+                                key={product.id}
+                                product={product}
+                                onEdit={handleEditProduct}
+                                onDelete={handleDeleteProduct}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    <p className="text-center text-gray-600 text-xl mt-10">
+                        No Product Found
+                    </p>
+                )}
+            </div>
         </div>
     );
 }

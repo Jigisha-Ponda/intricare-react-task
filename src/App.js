@@ -6,9 +6,9 @@ import FigmaDesign from "./components/FigmaDesign";
 function App() {
   return (
     <div className="=w-screen">
-      <Router>
+      <ProductDashboard />
+      {/* <Router>
         <div className="min-h-screen">
-          {/* Navigation */}
           <div className="fixed top-1/2 left-0 p-4 border transform -translate-y-1/2 z-50 flex flex-col gap-3 bg-white">
             <NavLink
               to="/"
@@ -31,17 +31,13 @@ function App() {
             </NavLink>
           </div>
 
-          {/* Routes */}
-          <div className="container mx-auto px-4">
             <Routes>
-              {/* Default route redirects to ProductDashboard */}
               <Route path="/" element={<ProductDashboard />} />
               <Route path="/figma" element={<FigmaDesign />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
-          </div>
         </div>
-      </Router>
+      </Router> */}
     </div>
   );
 }

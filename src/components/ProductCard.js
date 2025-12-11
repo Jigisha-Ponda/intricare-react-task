@@ -9,7 +9,7 @@ function ProductCard({ product, onEdit, onDelete }) {
         className="w-64 h-64 object-contain mb-4 p-4"
       />
       <div className="p-4 w-full flex flex-col items-center bg-gray-100 rounded-br-xl rounded-bl-xl">
-        <div class="product-details flex flex-col items-center">
+        <div className="product-details flex flex-col items-center">
         <h2 className="font-bold text-gray-800 mb-2 text-center product-title">{product.title}</h2>
         <p className="text-gray-600 mb-2">Category: {product.category}</p>
         </div>
