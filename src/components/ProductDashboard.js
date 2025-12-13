@@ -102,8 +102,8 @@ function ProductDashboard() {
     };
 
     return (
-        <div className="container mx-auto px-4">
-            <div className="min-h-screen px-5 py-5">
+        <div className="container mx-auto px-4 md:px-0">
+            <div className="min-h-screen py-5">
                 <h1 className="text-3xl font-bold text-center text-blue">
                     Product Management Dashboard
                 </h1>
