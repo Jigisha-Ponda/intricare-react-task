@@ -52,7 +52,14 @@ function ProductDashboard() {
                 body: JSON.stringify(product),
             });
             const newProduct = await res.json();
-            setProducts([...products, newProduct]);
+
+            // 🔥 FIX: generate unique ID
+            const productWithUniqueId = {
+                ...newProduct,
+                id: Date.now(), // unique ID
+            };
+            setProducts([...products, productWithUniqueId]);
+            // setProducts([...products, newProduct]);
             setShowModal(false);
         } catch (error) {
             console.error("Error adding product:", error);
